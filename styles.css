@@ -117,15 +117,95 @@ section .block {
 	margin: 0;
 	padding: 0;
 }
+.particle{
+  position: absolute;
+  top: 0px; left:0px;
+  height:85px; width:85px;
+  margin-top: 0;
+  margin-left: 10%;
+  border-radius: 50%;
+  background: #EEE;
+  animation: convect 14s infinite linear;
+  -webkit-animation: convect 14s infinite linear;
+  transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	-webkit-transition: none;
+}
+.particle:before{
+  display: block;
+  content: '';
+  position: absolute;
+  height: 80px; width: 80px;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 1;
+  transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  -webkit-transition: none;
+}
+.sun {
+  margin: auto;
+  position: absolute;
+  right: 70px; top: 20px;
+  margin-left: -100px;
+  height:210px; width:210px;
+  border-radius: 50%;
+  background: #FD1;
+}
+.inline{
+  display: block;
+  content: '';
+  position: absolute;
+  height: 190px; width: 190px;
+  border-radius: 50%;
+  background: #FE1;
+}
+.cloud {
+	position: absolute;
+	left: 50px;
+}
+.particle:nth-child(2) {  animation-delay:-12s;
+-webkit-animation-delay:-12s }
+.particle:nth-child(3) {  animation-delay:-10s;
+-webkit-animation-delay:-10s }
+.particle:nth-child(4) {  animation-delay:-8s;
+-webkit-animation-delay:-8s }
+.particle:nth-child(5) {  animation-delay:-6s;
+-webkit-animation-delay:-6s }
+.particle:nth-child(6) {  animation-delay:-4s;
+-webkit-animation-delay:-4s }
+.particle:nth-child(7) {  animation-delay:-2s;
+-webkit-animation-delay:-2s }
+
+@keyframes convect {
+  0% { top: 50px; left: 75px}
+  25% { top: 25px; left: 140px }
+  50% { top: 60px; left: 180px }
+  75% { top: 75px; left: 100px }
+  100% { top: 50px; left: 75px }
+}
+@-webkit-keyframes convect {
+  0% { top: 50px; left: 75px}
+  25% { top: 25px; left: 140px }
+  50% { top: 60px; left: 180px }
+  75% { top: 75px; left: 100px }
+  100% { top: 50px; left: 75px }
+}
 #hero h1 {
 	position: relative;
 	top: 30%;
 	font-size: 46px;
 	line-height: 150%;
+	margin: auto;
 }
 #hero nav {
 	margin: auto;
 	float: none;
+	position:relative;
 	color: #FFF;
 	left: 50%;
 	top: 50%;
@@ -220,12 +300,16 @@ nav ul li:first-child {
 }
 /****PROJECTS****/
 #projects {
-	background: #569;
+	background: #459;
 	color: #FFF;
+	position: relative;
+}
+#projects .content {
+	display: none;
 }
 #projects ul {
 	margin: 30px auto;
-	width: 682px;
+	width: 702px;
 }
 #projects li {
 	display: block;
@@ -239,7 +323,7 @@ nav ul li:first-child {
 	color: #CCC;
 	border-radius: 10px;
 	width: 300px;
-	padding: 5px;
+	padding: 10px;
 }
 #projects a:hover {
 	border: 3px solid #FFF;
@@ -257,6 +341,21 @@ nav ul li:first-child {
 	display: block;
 	text-align: center;
 }
+#projects svg {
+	display: block;
+	height: 100px;
+	width: 100px;
+	margin: auto;
+	fill: #347;
+	clear: both;
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	margin-left: -50px;
+}
+#projects svg:hover {
+	fill: #FFF034;
+}
 #aboutme {
 	background: #0C6;
 	color: #fff;
@@ -264,6 +363,7 @@ nav ul li:first-child {
 #aboutme p {
 	font-size: 20px;
 	margin-top: 60px;
+	text-align:center;
 }
 /****FOOTER****/
 footer {
@@ -272,7 +372,7 @@ footer {
 }
 #starholder {
 	position: absolute;
-	x-overflow: hidden;
+	overflow: hidden;
 }
 @-webkit-keyframes lefttoright {
     0% {left: -200px;}
