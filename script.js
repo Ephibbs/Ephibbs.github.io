@@ -6,6 +6,7 @@ var numstars = 0;
 
 $(document).ready(function () {
 	randomshootingstars();
+	/*
 	if ($(window).scrollTop() > threshold) {
 		$("header").fadeIn();
 		wasabove = false;
@@ -14,9 +15,9 @@ $(document).ready(function () {
 	if ($(window).scrollTop() < threshold) {
 		wasabove = true;
 	}
-	
+	*/
 	$("section, #starholder").css("min-height", $(window).height()+"px");
-	$("header").css("top", $("#resume").offset().top+"px")
+	//$("header").css("top", $("#resume").offset().top+"px")
 	$("#starholder").css("top", $(window).height());
 	$("#starholder").width($("#resume").width())
   	var $window = $(window);
@@ -49,9 +50,9 @@ $("section").each(function() {
 			g = Math.floor(parseInt(g, 16)/2).toString(16);
 			b = Math.floor(parseInt(b, 16)/2).toString(16);
 			var color2 = "rgba("+r+","+g+","+b+",1)";
-			*/
+			
 			$("header #logo a").css("color", color1);
-			/*
+			
 			$("header #logo a:hover").css("color", color2);
 			*/
 		}
@@ -76,6 +77,7 @@ $(window).scroll(function() {
 	var top = 3*$(window).scrollTop();
 	var height = $("#hero").height();
 	if (top > height) {top = height;}
+	/*
 	if (top < 0) {top = 0;}
 	console.log($("header").offset().top);
 	if ($("header").offset().top <= $(window).scrollTop()) {
@@ -94,11 +96,11 @@ $(window).scroll(function() {
 		$("header").fadeOut();
 		wasabove = true
 	}
-	
+	*/
 	if ($(window).scrollTop() + $(window).height() > $("#projects svg").offset().top && $(window).scrollTop() < $("#projects svg").offset().top) {
 		$("#projects svg").css("fill", "#FFF034");
 	} else {
-		$("#projects svg").css("fill", "#347");
+		$("#projects svg").css("fill", "rgba(0,0,0,0.5)");
 	}
 });
 $(window).resize(function () {
@@ -111,17 +113,16 @@ $(window).resize(function () {
 });
 function randomshootingstars() {
 	$("#starholder").css("height", $("#resume").height());
-	while(numstars < 100) {//var i = 0; i <= numstars; i++) {
+	while(numstars < 100) {
 			var diam = Math.random()*20;
 			var speed = Math.random()*10+3;
+			var delay = Math.random()*30;
 			var styles = {
-				backgroundColor: "#EEE",
-				borderRadius: "100%",
 				height: diam,
 				width: diam,
-				position: "absolute",
 				top: Math.random()*93+5+"%",
     			animation: "lefttoright "+speed+"s linear infinite",
+				animationDelay: "-30s",
 				zIndex: 1
 			};
 			var star = $("<div></div>").css(styles).addClass("star");

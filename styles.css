@@ -11,7 +11,7 @@
 	-webkit-transition: all ease-in-out .2s;
 }
 html, body {
-	background: #fff;
+	background: #28C;
 	font: normal normal normal 14px/150% Arial, Helvetica, sans-
 serif;
 }
@@ -320,9 +320,15 @@ nav ul li:first-child {
 }
 /****PROJECTS****/
 #projects {
-	background: #459;
+	background: #3A2;
 	color: #FFF;
 	position: relative;
+}
+#projects .content,  #aboutme .content {
+	margin-top: 30px;
+}
+#projects h1 {
+	color: rgba(0,0,0,.5);
 }
 #projects ul {
 	margin: 30px auto;
@@ -336,14 +342,12 @@ nav ul li:first-child {
 }
 #projects a {
 	display: block;
-	border: 3px solid #EEE;
-	color: #CCC;
+	color: rgba(0,0,0,.5);
 	border-radius: 10px;
 	width: 300px;
 	padding: 10px;
 }
 #projects a:hover {
-	border: 3px solid #FFF;
 	color: #FFF;
 }
 #projects li:nth-child(2n) {
@@ -363,7 +367,7 @@ nav ul li:first-child {
 	height: 100px;
 	width: 100px;
 	margin: auto;
-	fill: #347;
+	fill: rgba(0,0,0,0.5);
 	clear: both;
 	position: absolute;
 	bottom: 50px;
@@ -374,8 +378,11 @@ nav ul li:first-child {
 	fill: #FFF034;
 }
 #aboutme {
-	background: #0C6;
-	color: #fff;
+	background: #EEE;
+	color: #666;
+}
+#aboutme h1 {
+	color: #666;
 }
 #aboutme p {
 	font-size: 20px;
@@ -395,6 +402,11 @@ footer {
 	-ms-transition: none;
 	-o-transition: none;
 	-webkit-transition: none;
+}
+.star {
+	background-color: #EEE;
+	border-radius: 100%;
+	position: absolute;
 }
 @-webkit-keyframes lefttoright {
     0% {left: -200px;}
