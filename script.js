@@ -6,13 +6,12 @@ var numstars = 0;
 
 $(document).ready(function () {
 	randomshootingstars();
-	setupprojects();
 	/*
 	if ($(window).scrollTop() > threshold) {
 		$("header").fadeIn();
 		wasabove = false;
 	}
-	
+
 	if ($(window).scrollTop() < threshold) {
 		wasabove = true;
 	}
@@ -24,23 +23,23 @@ $(document).ready(function () {
   	var $window = $(window);
     $('*[data-type="parallax"]').each(function(){
         var $bgobj = $(this); // assigning the object
-     
+
         $window.scroll(function() {
-            var yPos = -($window.scrollTop() / $bgobj.data('speed')); 
-             
+            var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+
             // Put together our final background position
             var coords = yPos + 'px';
- 
+
             // Move the background
             $bgobj.css({ "margin-top": coords});
-        }); 
-    });  
+        });
+    });
 $("section").each(function() {
 	var This = $(this);
-	$(window).scroll(function() { 
+	$(window).scroll(function() {
 		if ($(window).scrollTop() + $(window).height() > This.offset().top + This.height()/2 && $(window).scrollTop() < This.offset().top + This.height()) {
 			This.find(".content").fadeTo("slow", 1);
-			
+
 			var color = This.css("background-color");
 			var r = color.match(RegExp("[0-9]+"));
 			var g = color.replace(r, "").match(RegExp("[0-9]+"));
@@ -51,14 +50,14 @@ $("section").each(function() {
 			g = Math.floor(parseInt(g, 16)/2).toString(16);
 			b = Math.floor(parseInt(b, 16)/2).toString(16);
 			var color2 = "rgba("+r+","+g+","+b+",1)";
-			
+
 			$("header #logo a").css("color", color1);
-			
+
 			$("header #logo a:hover").css("color", color2);
 			*/
 		}
 	});
-});       
+});
 });
 $(function() {
   $('a[href*=#]:not([href=#])').click(function() {
@@ -88,7 +87,7 @@ $(window).scroll(function() {
 		$("header").css("position", "absolute").css("top", $("#resume").offset().top+"px");
 	}
 	$("#hero h1, #hero nav").css("opacity", 1-(top/height));
-	
+
 	if ($(window).scrollTop() > threshold && wasabove) {
 		$("header").fadeIn();
 		wasabove = false
@@ -130,5 +129,5 @@ function randomshootingstars() {
 			$("#starholder").append(star);
 			numstars++;
 	}
-		
+
 }
