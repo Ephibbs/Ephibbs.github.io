@@ -97,11 +97,6 @@ $(window).scroll(function() {
 		wasabove = true
 	}
 	*/
-	if ($(window).scrollTop() + $(window).height() > $("#projects svg").offset().top && $(window).scrollTop() < $("#projects svg").offset().top) {
-		$("#projects svg").css("fill", "#FFF034");
-	} else {
-		$("#projects svg").css("fill", "rgba(0,0,0,0.5)");
-	}
 });
 $(window).resize(function () {
 	$("section").css("min-height", $(window).height()+"px");
