@@ -6,6 +6,7 @@ var numstars = 0;
 
 $(document).ready(function () {
 	randomshootingstars();
+	setupprojects();
 	/*
 	if ($(window).scrollTop() > threshold) {
 		$("header").fadeIn();
