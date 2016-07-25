@@ -1,109 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Evan Phibbs</title>
-<link href="styles.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<!--
-<header>
-	<div class="wrapper">
-    	<h1 id="logo"><a href="#hero">Evan Phibbs</a></h1>
-        <nav><ul>
-        	<li><a href="#resume">resume</a></li>
-            <li><a href="#projects">projects</a></li>
-            <li><a href="#aboutme">about me</a></li>
-        </ul></nav>
-   	</div>
-</header>
--->
-<section id="hero">
-<div class="sun" data-type="parallax" data-speed="5"><div class="inline">
-</div></div>
-<div class="cloud" data-type="parallax" data-speed="3">
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
 </div>
-        <h1 data-type="parallax" data-speed="1">Hello. My name is Evan.</h1>
-        <nav data-type="parallax" data-speed="1"><ul>
-                <li><a href="#resume">resume</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#aboutme">about me</a></li>
-         </ul></nav>
-         <h3><a id="next" href="#resume">⟨</a></h3>
-</section>
-<section id="resume">
-	<div id="starholder">
-    </div>
-    <div class="content">
-    	<h1>Resume</h1>
-    	<div class="block" id="exp">
-        	<h2>Experience</h2>
-        	<ul>
-            	<li>
-                	<b>UC San Diego Computer Vision Research Intern</b> <span class="grey">La Jolla, CA — Summer 2013</span>
-					<p>I wrote a program for a robot to recognize objects using a convolutional neural network and svm as well as training the robot to recognize objects as new or already learned.</p>
-                </li>
-            </ul>
-        </div>
-        <div class="block">
-        	<h2>Education</h2>
-            <ul>
-            	<li><b>University of Illinois at Urbana-Champaign</b> <span class="grey">Urbana, IL — 2014 - present</span>
-<p>Majoring in Computer Engineering, James Scholar, Awarded University Achievement Scholarship
-<br />Current courses: ECE 110, PHYS 211, CHEM 103, MSE 280, PS 241</p>
-</li>
-
-<li><b>San Pasqual High School</b> <span class="grey">Escondido, CA — 2010 - 2014</span>
-<p>GPA: 4.4, Class Rank: 2/594, SAT: 2360
-<br />AP courses taken: AP Physics, AP Calculus AB, AP Calculus BC, AP Biology.</p>
-</li>
-
-<li><b>Other Courses Taken: </b> <span class="grey">2010 - 2014</span>
-<p>UC San Diego: Math 140A Foundations of Real Analysis, Math 31AH Linear Algebra<br />
-Stanford University: CS161 Design and Analysis of Algorithms, CS 221 Introduction to Artificial Intelligence
-</p>
-</li>
-            </ul>
-        </div>
-        <div class="block">
-        	<h2>Skills</h2>
-            <ul>
-            	<li>Python, Java, C++, PHP, SQL, HTML, CSS, Javascript, Jquery, Objective-C, Swift, Photoshop, Illustrator, Final Cut Pro, Linux, ROS (Robotic Operating System)</li>
-            </ul>
-        </div>
-        <a id="pdfresume" href="Resume.pdf">Please click here for a pdf version</a>
-    </div>
-</section>
-<section id="projects">
-    <div class="content">
-    	<h1>Projects</h1>
-        <div class="block">
-        <ul>
-        	<li><a href="#">
-        	<h2></h2>
-            <span></span>
-            </a></li>
-       </ul>
-        </div>
-    </div>
-</section>
-<section id="aboutme">
-<div class="content">
-	<h1>About Me</h1>
-    <p>I am a freshman in computer engineering this year at University of Illinois. I am very interested in computers, machine learning, and physics. I have been teaching myself website design, iOS app design and machine learning. This will be a place for me to post my projects.
-    </p>
-
-    </div>
-</section>
-<footer></footer>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
