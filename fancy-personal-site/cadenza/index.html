@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadenza</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		outline: none;
+	}
+	::selection {
+  		background: #833; /* WebKit/Blink Browsers */
+
+	}
+	::-moz-selection {
+  		background: #833; /* Gecko Browsers */
+	}
+	body {
+		background: #333;
+		font-family: Arial, helvetica, "sans serif";
+	}
+	div {
+		color: #fff;
+		margin: auto;
+		position: absolute;
+		top:0; left:0;right:0;bottom:0;
+		height: 300px;
+	}
+	h1 {
+		font-size: 100px;
+		text-align: center;
+		margin: 10px auto;
+	}
+	h2, h3 {
+		margin: 10px auto 50px auto;
+		text-align: center;
+		font-size: 27px;
+	}
+	button {
+		display: block;
+		margin: 20px auto;
+		cursor: pointer;
+		color: rgba(255,255,255,1);
+		background: #A22;
+		padding: 10px 20px;
+		font-size: 30px;
+		border: none;
+		border-radius: 5px;
+		text-shadow: 0px 2px rgba(0,0,0,0.5);
+		box-shadow: 0 1px rgba(0,0,0,0.5);
+		transition: 0.2s ease-in-out;
+	}
+	button:hover {
+		text-shadow: 0px 2px rgba(0,0,0,0.9);
+		background: #922;
+	}
+
+</style>
+</head>
+<body>
+	<div>
+		<h1>Cadenza</h1>
+		<h2>A way to use your hands to manipulate webpages</h2>
+		<button onclick="startRecording()">Start</button>
+		<h3 id="data"></h3>
+		<audio></audio>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://www.softsynth.com/webaudio/webaudio_tools.js"></script>
+	<script src="recorder.js"></script>
+	<script src="recorderWorker.js"></script>
+	<script>
+		var recorder;
+		function startUserMedia(stream) {
+			window.source = audio_context.createMediaStreamSource(stream);
+		    source.connect(audio_context.destination);
+		    recorder = new Recorder(source);
+		}
+		try {
+			 // webkit shim
+			 window.AudioContext = window.AudioContext || window.webkitAudioContext;
+			 navigator.getUserMedia = ( navigator.getUserMedia ||
+			 navigator.webkitGetUserMedia ||
+			 navigator.mozGetUserMedia ||
+			 navigator.msGetUserMedia);
+			 window.URL = window.URL || window.webkitURL;
+			 var audio_context = new AudioContext;
+		 } catch (e) {
+			 alert('No web audio support in this browser!');
+		 }
+		function startRecording(button) {
+			$("button").css("transition", "none").fadeOut();
+			$("h2").fadeOut();
+			setTimeout(function () {$("div").animate({height: "90%"}, 1000); $("h1").animate({fontSize: "70px"}, 1000)}, 300);
+			initAudio();
+			startTone(20000);
+			navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+			//__log('No live audio input: ' + e);
+			console.log("nope")
+		});
+			recorder && recorder.record();
+		}
+		// Example showing how to produce a tone using Web Audio API.
+		// Load the file webaudio_tools.js before loading this file.
+		// This code will write to a DIV with an id="soundStatus".
+		var oscillator;
+		var amp;
+
+		// Create an oscillator and an amplifier.
+		function initAudio()
+		{
+		    // Use audioContext from webaudio_tools.js
+		    if( audioContext )
+		    {
+		        oscillator = audioContext.createOscillator();
+		        fixOscillator(oscillator);
+		        oscillator.frequency.value = 440;
+		        amp = audioContext.createGain();
+		        amp.gain.value = 0;
+		    
+		        // Connect oscillator to amp and amp to the mixer of the audioContext.
+		        // This is like connecting cables between jacks on a modular synth.
+		        oscillator.connect(amp);
+		        amp.connect(audioContext.destination);
+		        oscillator.start(0);
+		    }
+		}
+
+		// Set the frequency of the oscillator and start it running.
+		function startTone( frequency )
+		{
+		    var now = audioContext.currentTime;
+		    
+		    oscillator.frequency.setValueAtTime(frequency, now);
+		    
+		    // Ramp up the gain so we can hear the sound.
+		    // We can ramp smoothly to the desired value.
+		    // First we should cancel any previous scheduled events that might interfere.
+		    amp.gain.cancelScheduledValues(now);
+		    // Anchor beginning of ramp at current value.
+		    amp.gain.setValueAtTime(amp.gain.value, now);
+		    amp.gain.linearRampToValueAtTime(0.5, audioContext.currentTime + 0.1);
+		}
+
+		function stopTone()
+		{
+		    var now = audioContext.currentTime;
+		    amp.gain.cancelScheduledValues(now);
+		    amp.gain.setValueAtTime(amp.gain.value, now);
+		    amp.gain.linearRampToValueAtTime(0.0, audioContext.currentTime + 1.0);
+		}
+
+		// init once the page has finished loading.
+
+		window.onload = initAudio;
+	</script>
+</body>
+</html>
