@@ -3,19 +3,35 @@ layout: default
 ---
 
 <div class="home">
+    
+  <section id="intro">
+    <h3>Hello, My name is Evan Phibbs. I study physics and computer science at the University of Illinois. I love to learn more about computers everyday and use my knowledge to work on interesting projects. I am looking for a full-time position for when I graduate in May 2017.</h3>
+  </section>
+    
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li class="projectsquare"><a href="#">Neural Headset Quadcopter</a></li>
+        <li class="projectsquare"><a href="#">Investing</a></li>
+        <li class="projectsquare"><a href="#">Recurrent Neural Networks</a></li>
+        <li class="projectsquare"><a href="#">Educational Website</a></li>
+        <li class="projectsquare"><a href="#">Robotic Jellyfish</a></li>
+    </ul>  
+  </section> 
+  
+  <section id="blog">
+      <h1 class="page-heading">Blog Posts</h1>
 
-  <h1 class="page-heading">Posts</h1>
+      <ul class="post-list">
+        {% for post in site.posts %}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
+            <h2>
+              <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h2>
+          </li>
+        {% endfor %}
+      </ul>
+  </section> 
 </div>
