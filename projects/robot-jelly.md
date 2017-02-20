@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Project
+title: Robotic Jellyfish
 permalink: /projects/robot-jelly
 ---
 
