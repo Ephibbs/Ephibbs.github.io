@@ -1,0 +1,13 @@
+---
+layout: project
+title: Hadoop Computing Cluster
+permalink: /projects/hadoop-computing
+---
+
+Last summer, I got very interested in personal investing and thought it would be interesting to build my own financial database and server as well as making an excuse to learn more about hadoop and map reduce. My mom owns a small gift store and recently replaced her computers at work. I asked her for the old ones and a few days later I had 5 dual-core hp desktops stacked on top of eachother in my room. 
+
+I connected them together using ethernet cables and connected them to the home internet router. I uninstalled windows off of them and replaced it with ubuntu. I then installed mongodb with sharding and hadoop on the computers and I was ready to start finding some data sources. 
+
+It is extremely difficult to find inexpesive high-quality financial data on the internet. If you want descent data, its going to cost at least $100/month which is more than I'm willing to spend without any idea how I'm going to use the data to invest. I found a free trial for stock, ETF, and currency pair tick data at a website called DTN IQFeed with a lot of limits of course. I also found that Google hosts intraday 5-minute data for the top 6000 stock indices. To start out, that's not bad. Of course, google is a bit uptight about people making hundreds of requests for their pages a minute. So I found a method of intermittently making requests for financial data that didn't anger the google overlord or have it blacklist my ip. Using python I wrote a script to download the data from different sources and store them in a few different MongoDB tables. So using 10 cpu's worth of power, they worked round the clock to download data from google, DTN IQFeed, as well as GFD Global, which my school gives me access to. As with webscraping over time, there are always problems. I wrote a little script to email me in case a scheduled download failed which happened every couple days in the beginning but after setting up enough fail-safes and learning about the different limitations of the websites, the script was able to download data completely autonomously for several weeks! 
+
+By the end of the summer, I had many, many gigabytes worth of financial data for testing investment strategies. I was pretty excited. My last major idea for the project was to use manage requests for data from my laptop as well as offload backtesting to the computing cluster remotely.
