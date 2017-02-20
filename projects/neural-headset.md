@@ -18,5 +18,14 @@ We purchased all of our electronics online and they arrived about a week later. 
 
 ## Neural Headset
 
-My whole inspiration for the project came from when I borrowed an Emotiv Insight neural headset from the Biomedial Engineering Society. It worked very well in the simulation software included with the headset. I then began to try to find a way to get access to the raw data, which as Emotic's website states, is only available in the research version for an extra few hundred dollars. As a poor, starving college student, I didn't have that kind of mula. I eventually found a software hack to get access to the raw data on the headset.
+My whole inspiration for the project came from when I borrowed an Emotiv Insight neural headset from the Biomedial Engineering Society. It worked very well in the simulation software included with the headset. I then began to try to find a way to get access to the raw data, which as Emotic's website states, is only available in the research version for an extra $400. As a poor, starving college student, I didn't have that kind of mula so we decided to take the results from Emotiv's own software to control the quadcopter.
+
+## Programming and Wireless Transeivers
+
+I researched transceivers online and found about a great  company making so-called zigbees. I bought a pair that could communicate over a mile just to be safe. Using an adapter, Garrett was able to connect one to his computer and another to the quadcopter. Lastly, I coded a small program to take data from the Emotiv software and send it over serial on the zigbees using python and multithreading to reduce delay between signal generation and the quadcopter acting on it.
+
+## Results
+
+We presented our project on Engineering Open House weekend and allowed people to wear the headset and train themselves to fly the quadcopter. People seemed to really enjoy it. It seemed to work fairly accurately and promptly for most participants as well. At the end of the 2 day event we were awarded third place in Interdisciplinary Collaberation amongst over 50 projects in the category, many of which had been running for several years.
+
 
