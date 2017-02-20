@@ -217,10 +217,14 @@ section {
 }
 .project-container {
     width: 100%;
-    
+    margin: auto;
 }
 .project-square {
-    
+    width: 100px;
+    height: 100px;
+    background: white;
+    margin: 0px 10px 10px 0px;
+    display: inline-block;
 }
 
 /**
