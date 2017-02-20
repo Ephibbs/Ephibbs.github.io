@@ -186,6 +186,12 @@
     }
 }
 
+.home {
+    width: 100%;
+    background: #222;
+    position: relative;
+}
+
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
@@ -197,9 +203,9 @@
 }
 
 section {
-    width: 100%;
     padding: 10px;
     height: 100%;
+    
     position: absolute;
     left: 0;
     width: 100%;
@@ -216,6 +222,9 @@ section {
 
 #blog {
     top: 200%;
+}
+.project-container {
+    
 }
 
 /**
