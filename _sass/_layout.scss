@@ -210,7 +210,8 @@ section {
     width: 100%;
     margin: auto;
 }
-.project-square {
+.project-square a {
+    color: aliceblue;
     width: 300px;
     background: #238d9a;
     margin: 0px 10px 10px 0px;
@@ -218,8 +219,8 @@ section {
     padding: 150px 30px 150px 30px;
 }
 
-.project-square a {
-    color: aliceblue;
+.project-square a:hover {
+    color: azure;
 }
 
 /**
