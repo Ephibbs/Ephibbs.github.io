@@ -211,6 +211,12 @@ section {
     width: 700px;
     margin: auto;
 }
+.project-container a {
+    color: #fff;
+}
+.project-container a:hover {
+    color: #000;
+}
 .project-square {
     width: 100px;
     background: #238d9a;
@@ -218,7 +224,6 @@ section {
     display: inline-block;
     padding: 50px 30px 50px 30px;
     text-align: center;
-    color: #fff;
 }
 
 /**
